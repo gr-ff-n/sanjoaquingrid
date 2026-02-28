@@ -22,7 +22,17 @@ header {
 	border-bottom: 3px solid #931420;
 	background-image: linear-gradient(
 	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-content: start;
+	align-items: center;
+	gap: 20px;
 }
+
+#header_text {
+	align-items: left;
+}
+
 header h2 {
 	font-size: 175%;
 	color: #800000;
@@ -32,22 +42,38 @@ header h3 {
 	font-style: italic;
 }
 header img {
+	margin-left: 2em;
 	padding: 0 3.75%;            /* 30 / 800 x 100 */
 }
 .shadow {
 	text-shadow: 2px 2px 2px #800000;
 }
+
+main {
+	display: grid;
+	grid-template-areas: 'aside section'
+	'footer footer';
+	gap: 10px;
+	justify-content: center;
+	padding-top: 20px
+}
+
 /* the styles for the navigation menu */
 #nav_menu ul {
 	list-style-type: none;
-	margin: 0;
+	background-color: #800000;
 	padding: 0;
+	margin: 0;
 	position: relative;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	justify-items: center;
 }
-#nav_menu ul li {
-    width: 20%;
+
+#nav_menu li {
+    width: 40%;
 }
-#nav_menu ul li a {
+#nav_menu a {
     display: block;
     text-align: center;
     padding: 1em 0;
@@ -60,18 +86,20 @@ header img {
 	color: yellow;
 }
 #nav_menu ul ul {
-	width: 100%;
+	width: 20%;
     display: none;
     position: absolute;
     top: 100%;
 }
+
 #nav_menu ul li:hover > ul {
 	display: block;
 }
 
 /* the styles for the section */
 section {
-	width: 65.625%;                  /* 525 / 800 X 100 */
+	grid-area: section;
+	width: 90%;                  /* 525 / 800 X 100 */
 	padding: 0 2.5% 20px 2.5%;       /* 20 / 800 x 100 */
 }
 section h1 {
@@ -121,8 +149,10 @@ article img {
 
 /* the styles for the aside */
 aside {
-	width: 26.875%;                     /* 215 / 800 x 100 */
+	grid-area: aside;
+	width: 100%;                     /* 215 / 800 x 100 */
 	padding: 0 0 20px 2.5%;             /* 20 / 800 x 100 */
+	margin-left: 10px
 }
 aside h2 {
 	color: #800000;
@@ -185,6 +215,18 @@ footer p {
 	}
 	.slicknav_menu {
 		background-color: #800000 !important;
+	}
+
+	main {
+		grid-template-areas: 'section'
+		'aside'
+		'footer';
+		align-items: center;
+	}
+
+	header {
+		grid-template-columns: auto;
+		justify-content: center;
 	}
 }
 
